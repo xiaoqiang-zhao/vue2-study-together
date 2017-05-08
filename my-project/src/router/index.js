@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Hello from '@/demo/get-started'
 import TemplateInterpolation from '@/demo/template-interpolation'
 import Computed from '@/demo/computed'
+import Key from '@/demo/key'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/computed',
       name: 'computed',
       component: Computed
+    },
+    {
+      path: '/key',
+      name: 'key',
+      component: Key
     }
   ]
 })

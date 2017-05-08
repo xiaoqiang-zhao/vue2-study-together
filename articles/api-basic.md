@@ -129,3 +129,42 @@ watch 监听数据变化，适合一个值影响多个值的主动数据逻辑�
       }
     }
 
+## 条件渲染 和 列表渲染
+
+条件渲染有一个容易忽略的知识点，用 Key 管理可复用元素：
+
+    <template v-if="loginType === 'username'">
+      <label>Username</label>
+      <input placeholder="Enter your username" key="username-input">
+    </template>
+    <template v-else>
+      <label>Email</label>
+      <input placeholder="Enter your email address" key="email-input">
+    </template>
+
+如果不加 `key`，在不 `loginType` 件下 `input` 是同一个 `input`，这样是不合理的。但是在 `label` 上是合理并且高效的。`key` 的作用在 `v-for` 上同样很有用，具体参见演示 Demo(路径 src/demo/key)。
+
+`v-for` 有三种遍历对象：数组，对象，数字。其中数组的 7 个方法会触发视图更新：
+
+- push()
+- pop()
+- shift()
+- unshift()
+- splice()
+- sort()
+- reverse()
+
+需要注意的是有两种情况不会触发视图更新，需要换种变通写法：
+
+- 当你利用索引直接设置一个项时，例如： vm.items[indexOfItem] = newValue
+- 当你修改数组的长度时，例如： vm.items.length = newLength
+
+变通：
+
+- Vue.set(example1.items, indexOfItem, newValue)
+- example1.items.splice(newLength)
+
+
+
+
+
