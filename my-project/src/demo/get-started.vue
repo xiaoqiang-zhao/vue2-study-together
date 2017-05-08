@@ -9,7 +9,7 @@ export default {
   name: 'hello',
   data () {
     return {
-      msg: '这是我们开课的第一个 Demo'
+      msg: '这是我们开课的第一个 Demo2'
     }
   }
 }

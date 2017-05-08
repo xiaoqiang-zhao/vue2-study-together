@@ -1,0 +1,131 @@
+# API 基础篇
+
+> Vue 的文档写的很棒，我们快速的过一遍 API，这篇是基础篇 API 的精简版。
+
+## 安装&介绍&实例
+
+关于安装和用法我们只讲正规军的主流套路，那些没有包管理和走下坡路的包管理方式我们直接略过。
+
+vue 不支持 IE8 及以下浏览器。
+
+好到这里"安装&介绍"这两部分已经没什么好讲的了，关于实例在 SPA 项目中一般只声明一次，其余的都是以组件的形式来集成。
+
+    var vm = new Vue({
+      // 选项
+    });
+
+也就是说上面这种用法大多数项目只出现一次，出现在入口文件中，在我们的演示项目中表现为：
+
+    // main.js
+    new Vue({
+      el: '#app',
+      router,
+      template: '<App/>',
+      components: { App }
+    });
+
+首先要在页面中初始化一个组件，el 就是指定组件在 Dom 树上的位置。router 是单页应用的路由，后面我们单独讲这个组件。template 是组件的模板，一般不这样用，当前这样用是因为 `main.js` 是入口文件，不方便独立写模板文件，并且模板足够简单。
+我们注意到在 `index.html` 和 `App.vue` 中出现了同样的 `<div id="app">`，那么我们去掉一个可以吗？
+
+这里生命周期是一个重要知识点，生命周期的 8 个钩子需要记住，依次是：
+
+- beforeCreate  数据观察和事件初始化之前
+- created  数据观察和事件初始化完成
+- beforeMount  模板编译之前
+- mounted 模板编译完成
+- beforeUpdate  数据更新前
+- updated  数据更新完成
+- beforeDestroy  组件销毁之前
+- destroyed  组件销毁完成
+
+## 模板语法
+
+大括号绑定数据，语法很简单，如果想动态切换两份数据要怎么办？
+
+    <template>
+      <div>
+        <!-- ?? 这里要展现激活状态者的得分 ??-->
+      </div>
+    </template>
+    
+    <script>
+    export default {
+      name: 'hello',
+      data () {
+        return {
+          me: {
+            score: 5
+          },
+          you: {
+            score: 10
+          },
+          activeName: 'me'
+        }
+      }
+    }
+    </script>
+
+v-once 的使用场景，前端静态数据，除了那两个数字都可以用 v-once 来提高性能：
+
+![v-once 语法演示图片](./img/template-once-example.png)
+
+v-bind:id 缩写为 :id，在 Dom 节点上与变量做互动只能使用此语法，下面语法是不可以的：
+
+    <div id="{{id}}">
+
+表达式不推荐用，html 中不适合写数据逻辑，计算是简单逻辑也建议挪到计算属性中。
+
+指令全家福(v- 开头都是 vue 的指令)：
+
+- v-once
+- v-bind
+- v-text 为了避免模板未解析时页面出现插值表达式
+- v-html 直接输出 html，有安全隐患不建议使用
+- v-show 对比 v-if 不重新渲染组件，只是隐藏，如果值为 false 里面的会渲染
+- v-if 条件判断是否渲染 Dom 节点，如果值为 false 里面的不渲染
+- v-else
+- v-else-if
+- v-for 循环
+- v-on 事件绑定，缩写方式：v-on:click 等价 @click
+- v-model 表单组件值得双向绑定
+- v-pre 跳过编译直接展示，提高性能
+- v-clock 比 v-text 更简单粗暴的一个方式，隐藏未编译的 Mustache 标签直到实例准备完毕
+
+这里有一点需要注意，如果 `v-for` 和 `v-if` 在同一个节点上使用，那么 `v-for` 会被先执行，如果想要先执行 `v-if` 需要在外面包一层 `template`，将 `v-if` 写进 `template` 中。
+
+## 计算属性
+
+computed 计算属性值会缓存(与之对应的是 methods)，有 set 函数，适合多个值合成一个值的被动数据逻辑。
+    
+    // ...
+    computed: {
+      fullName: {
+        // getter
+        get: function () {
+          return this.firstName + ' ' + this.lastName
+        },
+        // setter
+        set: function (newValue) {
+          var names = newValue.split(' ')
+          this.firstName = names[0]
+          this.lastName = names[names.length - 1]
+        }
+      }
+    }
+    // ...
+    
+watch 监听数据变化，适合一个值影响多个值的主动数据逻辑。
+
+    watch: {
+      a: function (val, oldVal) {
+        console.log('new: %s, old: %s', val, oldVal)
+      },
+      // 方法名
+      'b.a': 'someMethod',
+      // 深度 watcher
+      c: {
+        handler: function (val, oldVal) { /* ... */ },
+        deep: true
+      }
+    }
+
