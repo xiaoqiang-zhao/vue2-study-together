@@ -13,6 +13,9 @@
         <li>
           <router-link to="key">key</router-link>
         </li>
+        <li>
+          <router-link to="v-model">v-model</router-link>
+        </li>
       </ul>
     </div>
   </div>

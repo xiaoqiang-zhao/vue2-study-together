@@ -164,7 +164,60 @@ watch 监听数据变化，适合一个值影响多个值的主动数据逻辑�
 - Vue.set(example1.items, indexOfItem, newValue)
 - example1.items.splice(newLength)
 
+## 事件处理
 
+主要三块内容：
 
+一、支持的事件列表，其实就是 Dom 原生事件，这里不展开；
 
+二、10 个修饰符；
 
+- .stop - 调用 event.stopPropagation()。
+- .prevent - 调用 event.preventDefault()。
+- .capture - 添加事件侦听器时使用 capture 模式。
+- .self - 只当事件是从侦听器绑定的元素本身触发时才触发回调。
+- .{keyCode | keyAlias} - 只当事件是从特定键触发时才触发回调。
+- .native - 监听组件根元素的原生事件。
+- .once - 只触发一次回调。
+- .left - (2.2.0) 只当点击鼠标左键时触发。
+- .right - (2.2.0) 只当点击鼠标右键时触发。
+- .middle - (2.2.0) 只当点击鼠标中键时触发。
+
+三、组件的自定义事件；
+
+还有两个小尾巴：`$event` 和 `keyAlias`
+
+    // 可以使用 v-on:keyup.f1
+    Vue.config.keyCodes.f1 = 112
+
+## 表单控件绑定
+
+主要的语法就是 `v-model`，表单元素：input, checkbox,radio,select。
+
+input 和 radio 最简单，`v-model` 对应的值就是 input 的输入值 和 被选中 radio 的 value 值。
+
+checkout 分单个和多个组合，如果是单个又有两种用法：
+
+    // v-model 直接对应是否选中的布尔值
+    <input type="checkbox" id="checkbox" v-model="checked">
+    // checked 是布尔值，数据双向绑定
+    
+    // v-module 对应不同逻辑值
+    <input
+      type="checkbox"
+      v-model="toggle"
+      v-bind:true-value="a"
+      v-bind:false-value="b"
+    >
+    // 当选中时
+    vm.toggle === vm.a
+    // 当没有选中时
+    vm.toggle === vm.b
+    
+如果是多个组合 `v-model` 对应选中的 checkbox 的 value 组成数组。
+
+单选 select 其实是变形的 radio 组，多选的 select 和 checkbox 组类似，不同的是如果没有 option 没有设置 value 可以取 text。如果想 text 和 value 都需要，那么将 value 设为对象
+
+    <select v-model="selected" multiple>
+        <option v-for="item in items" :value="item">{{item.text}}</option>
+    </select>

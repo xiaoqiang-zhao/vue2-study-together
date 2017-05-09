@@ -4,6 +4,7 @@ import Hello from '@/demo/get-started'
 import TemplateInterpolation from '@/demo/template-interpolation'
 import Computed from '@/demo/computed'
 import Key from '@/demo/key'
+import VModel from '@/demo/v-model'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/key',
       name: 'key',
       component: Key
+    },
+    {
+      path: '/v-model',
+      name: 'v-model',
+      component: VModel
     }
   ]
 })
