@@ -16,6 +16,9 @@
         <li>
           <router-link to="v-model">v-model</router-link>
         </li>
+        <li>
+          <router-link to="component-props">component-props</router-link>
+        </li>
       </ul>
     </div>
   </div>

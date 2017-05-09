@@ -5,6 +5,7 @@ import TemplateInterpolation from '@/demo/template-interpolation'
 import Computed from '@/demo/computed'
 import Key from '@/demo/key'
 import VModel from '@/demo/v-model'
+import ComponentProps from '@/demo/component-props'
 
 Vue.use(Router)
 
@@ -34,6 +35,11 @@ export default new Router({
       path: '/v-model',
       name: 'v-model',
       component: VModel
+    },
+    {
+      path: '/component-props',
+      name: 'component-props',
+      component: ComponentProps
     }
   ]
 })

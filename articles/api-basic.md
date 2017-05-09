@@ -221,3 +221,4 @@ checkout 分单个和多个组合，如果是单个又有两种用法：
     <select v-model="selected" multiple>
         <option v-for="item in items" :value="item">{{item.text}}</option>
     </select>
+
