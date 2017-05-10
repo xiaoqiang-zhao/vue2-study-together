@@ -68,5 +68,54 @@ type 的集合：String Number Boolean Function Object Array
 
 ## 自定义事件
 
+vue2 在自定义事件上做了很多减法，这使组件间的关系更为简单，运行更为高效，对于功能的减弱用 vuex 来弥补。首先是 `$on` 只能监听本组件的事件，想要监听子组件的事件需要在模板上声明，而 `$emit` 能触发本组件的事件，对于父组件的事件监听必须在模板上声明才能触发。
 
+    // 子组件的触发
+    this.$emit('custom-event', '此字符串是 custom-event 事件的数据')
+    // 父组件的监听
+    <children-component @custom-event="parentComponentMethod"></children-component>
+
+而组件内部的事件触发和监听似乎没有太大用处，组件内部通过 `method` 调用更为直观和简单。上一节的 props 是自上而下(从父组件到子组件)传递数据，这里的 `@` 和 `$emit` 配合实现自下而上(从子组件到父组件)传递数据。
+
+`v-model` 可以被定义在子组件的模板上，我们可以通过这个实现父子组件数据双向绑定：
+
+    // 父组件模板中引用子组件
+    <children-component-input
+      v-model="text"
+    ></children-component-input>
+
+    // 子组件中
+    export default {
+      props: ['value'],
+      data () {
+        return {
+          valueProp: this.value
+        }
+      },
+      watch: {
+        // 自下而上
+        valueProp (value) {
+          this.$emit('input', value)
+        },
+        // 自上而下
+        value (value) {
+          this.valueProp = value
+        }
+      }
+    }
+
+这里有几个需要注意的点：
+
+- `props` 的 `value` 需要写死，不可以是其他的值，因而只能有一个双向绑定字段；
+- `data` 中必须对 `value` 指定私有化别名如： `valueProp: this.value`，子组件中只能对 `valueProp` 做变值操作；
+- 必须在 `watch` 中添加两个监听，保证数据的双向传递；
+
+最后如果项目中只有一处非父子组件的通讯可以用空 Vue 实例做中央总线，或者对象数据等临时方案；如果项目中很多地方需要非父子组件通信，建议引入 vuex 解决方案。
+
+这一节中的相关 Demo：
+
+- 父组件 `component-event.vue`
+- 常规从子到父的组件通信 `component-event-children.vue`
+- 父子组件双向数据绑定 `component-event-children-input.vue`
+- 非父子组件通信推荐方案(简化版vuex，这里并没有用到 vuex) `component-children-vuex-data.vue`
 

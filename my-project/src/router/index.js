@@ -6,6 +6,7 @@ import Computed from '@/demo/computed'
 import Key from '@/demo/key'
 import VModel from '@/demo/v-model'
 import ComponentProps from '@/demo/component-props'
+import ComponentEvent from '@/demo/component-event'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
       path: '/component-props',
       name: 'component-props',
       component: ComponentProps
+    },
+    {
+      path: '/component-event',
+      name: 'component-event',
+      component: ComponentEvent
     }
   ]
 })

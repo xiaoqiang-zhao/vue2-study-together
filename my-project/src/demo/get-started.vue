@@ -19,6 +19,9 @@
         <li>
           <router-link to="component-props">component-props</router-link>
         </li>
+        <li>
+          <router-link to="component-event">component-event</router-link>
+        </li>
       </ul>
     </div>
   </div>
