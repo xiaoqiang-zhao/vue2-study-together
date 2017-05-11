@@ -114,8 +114,13 @@ vue2 在自定义事件上做了很多减法，这使组件间的关系更为简
 
 这一节中的相关 Demo：
 
-- 父组件 `component-event.vue`
-- 常规从子到父的组件通信 `component-event-children.vue`
-- 父子组件双向数据绑定 `component-event-children-input.vue`
-- 非父子组件通信推荐方案(简化版vuex，这里并没有用到 vuex) `component-children-vuex-data.vue`
+- 父组件 `component-event.vue`；
+- 常规从子到父的组件通信 `component-event-children.vue`；
+- 父子组件双向数据绑定 `component-event-children-input.vue`；
+- 非父子组件通信推荐方案(简化版vuex，这里并没有用到 vuex) `component-children-vuex-data.vue`；
+
+## slot
+
+这一部分没有什么坑，直接读文档吧，这里有一个我的实践项目供参考: [可扩展的 vue 表格组件](https://github.com/longze/vue-scalable-table)。
+
 
