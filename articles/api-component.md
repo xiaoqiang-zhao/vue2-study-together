@@ -121,6 +121,11 @@ vue2 在自定义事件上做了很多减法，这使组件间的关系更为简
 
 ## slot
 
-这一部分没有什么坑，直接读文档吧，这里有一个我的实践项目供参考: [可扩展的 vue 表格组件](https://github.com/longze/vue-scalable-table)。
+这一节有两个关键的点：
 
+- 作用域与插槽作用域，默认是父组件作用域，指定 `scope` 后是指定的数据作用域；
+- 单个 slot 与 具名 slot，只接收一个 slot 不需要命名，可以接收多个 slot 需要命名，名称可以是动态的。
 
+这一部分没有什么坑，不展开讲，这里有一个我的实践项目供参考: [可扩展的 vue 表格组件](https://github.com/longze/vue-scalable-table)。
+
+## 
