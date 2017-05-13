@@ -93,6 +93,8 @@ v-bind:id 缩写为 :id，在 Dom 节点上与变量做互动只能使用此语�
 
 这里有一点需要注意，如果 `v-for` 和 `v-if` 在同一个节点上使用，那么 `v-for` 会被先执行，如果想要先执行 `v-if` 需要在外面包一层 `template`，将 `v-if` 写进 `template` 中。
 
+在 `v-if` 与其他指令(如 `v-once`)一起使用时，先执行 `v-if`，如果 `v-once` 中包含异步数据那么一定要和 `v-if` 配合使用，否则亦不会来的数据不会被渲染。
+
 ## 计算属性
 
 computed 计算属性值会缓存(与之对应的是 methods)，有 set 函数，适合多个值合成一个值的被动数据逻辑。
@@ -192,7 +194,7 @@ watch 监听数据变化，适合一个值影响多个值的主动数据逻辑�
 
 ## 表单控件绑定
 
-主要的语法就是 `v-model`，表单元素：input, checkbox,radio,select。
+主要的语法就是 `v-model`，表单元素：input,checkbox,radio,select。
 
 input 和 radio 最简单，`v-model` 对应的值就是 input 的输入值 和 被选中 radio 的 value 值。
 
@@ -216,7 +218,7 @@ checkout 分单个和多个组合，如果是单个又有两种用法：
     
 如果是多个组合 `v-model` 对应选中的 checkbox 的 value 组成数组。
 
-单选 select 其实是变形的 radio 组，多选的 select 和 checkbox 组类似，不同的是如果没有 option 没有设置 value 可以取 text。如果想 text 和 value 都需要，那么将 value 设为对象
+单选 select 其实是变形的 radio 组，多选的 select 和 checkbox 组类似，不同的是如果没有 option 没有设置 value 可以取 text。如果想 text 和 value 都需要，那么将 value 设为对象:
 
     <select v-model="selected" multiple>
         <option v-for="item in items" :value="item">{{item.text}}</option>
