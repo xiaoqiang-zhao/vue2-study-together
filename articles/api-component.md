@@ -128,4 +128,47 @@ vue2 在自定义事件上做了很多减法，这使组件间的关系更为简
 
 这一部分没有什么坑，不展开讲，这里有一个我的实践项目供参考: [可扩展的 vue 表格组件](https://github.com/longze/vue-scalable-table)。
 
-## 
+## 动态组件
+
+让多个组件可以使用同一个挂载点，并且动态切换，这个用在 Tab 类的组件上非常合适。当外面包一层 `keep-alive` 节点时，可以有效缓存切出去的组件，保存状态并避免重新渲染。
+
+## 杂项
+
+组件对外的三要素：
+
+- Props 组件初始化入参，和外部的数据变化通知；
+- Events 组件内部变化后对外的通知，外部可以选择性关注；
+- Slots 将组件的某个块交给外部来定义，开发高扩展组件的必备技巧。
+
+子组件索引，指定索引：`<user-profile ref="profile"></user-profile>`，使用索引：`.$refs.profile`。
+
+异步组件的主要用途是单页应用的按需加载页面，vue 2.3.0 提供了高级异步组件功能，需要配合 2.4.0+ vue-router 来配合实现。
+
+    // 这样配置资源，回将资源打进一个包中，一次性加载
+    {
+      path: '/',
+      name: 'Hello',
+      // import Hello from '@/demo/main-component'
+      component: Hello
+    }
+    // 这样会分片打包资源，主页加载时一同加载 (同步加载)
+    {
+      path: '/component-event',
+      name: 'component-event',
+      component: import('@/demo/splited-component')
+    }
+    // 这样会分片打包资源，在路由到其对应页面时才会加载 (异步加载)
+    {
+      path: '/async-component',
+      name: 'async-component',
+      component: resolve => import('@/demo/async-component')
+    }
+    
+备忘：
+    
+npm install babel-plugin-syntax-dynamic-import    
+
+
+## 参考资料
+
+[https://webpack.js.org/guides/code-splitting-async/#promise-polyfill](https://webpack.js.org/guides/code-splitting-async/#promise-polyfill)

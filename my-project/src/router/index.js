@@ -1,12 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
+import LoadingComp from '@/widget/loading'
+import ErrorComp from '@/widget/error'
 import Hello from '@/demo/get-started'
 import TemplateInterpolation from '@/demo/template-interpolation'
 import Computed from '@/demo/computed'
 import Key from '@/demo/key'
 import VModel from '@/demo/v-model'
 import ComponentProps from '@/demo/component-props'
-import ComponentEvent from '@/demo/component-event'
 
 Vue.use(Router)
 
@@ -45,7 +47,21 @@ export default new Router({
     {
       path: '/component-event',
       name: 'component-event',
-      component: ComponentEvent
+      component: import('@/demo/component-event')
+    },
+    {
+      path: '/async-component',
+      name: 'async-component',
+      component: resolve => import('@/demo/async-component'),
+      // component: import('@/demo/async-component').then(a => a()),
+      // loading 时应当渲染的组件
+      loading: LoadingComp,
+      // 出错时渲染的组件
+      error: ErrorComp,
+      // 渲染 loading 组件前的等待时间。默认：200ms.
+      // delay: 200,
+      // 最长等待时间。超出此时间则渲染 error 组件。默认：Infinity
+      timeout: 3000
     }
   ]
 })

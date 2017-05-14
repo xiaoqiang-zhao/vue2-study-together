@@ -1,6 +1,5 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
     <div>
       <h2> Demo 列表</h2>
       <ul>
@@ -21,6 +20,9 @@
         </li>
         <li>
           <router-link to="component-event">component-event</router-link>
+        </li>
+        <li>
+          <router-link to="async-component">async-component</router-link>
         </li>
       </ul>
     </div>
