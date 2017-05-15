@@ -24,6 +24,12 @@
         <li>
           <router-link to="async-component">async-component</router-link>
         </li>
+        <li>
+          <router-link to="recursive-component">递归组件</router-link>
+        </li>
+        <li>
+          <router-link to="inline-template">inline-template</router-link>
+        </li>
       </ul>
     </div>
   </div>

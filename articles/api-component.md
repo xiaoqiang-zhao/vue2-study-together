@@ -163,11 +163,18 @@ vue2 在自定义事件上做了很多减法，这使组件间的关系更为简
       name: 'async-component',
       component: resolve => import('@/demo/async-component')
     }
-    
-备忘：
-    
-npm install babel-plugin-syntax-dynamic-import    
+        
+组件命名，最佳实践方式：
 
+    components: {
+      ChildrenComponent
+    }
+    <children-component/>
+
+
+递归组件有两个关键点：一个是 name 属性的指定；一个是注意退出条件不要无限循环。这里不展开说了，具体查看我写的例子：`demo/recursive-component-container.vue`。与递归组件类似的问题是循环引用，文档中给的解决方案让 `require` 在回调中出现并强行注册，这种方式让子组件的注册不具有统一性，可以用传统的循环依赖解决方案 -- 提取公共依赖部分作为第三个组件，或者使用 `slot` 还能提供扩展能力。
+
+`inline-template` 是与 `mixins` 想对应的两个提供组件灵活度和复用度的两种方法，前者由于是模板所以只能整体覆盖重写，后者提供了 merge 的功能。关于前者的使用方法见 Demo：`inline-template`。
 
 ## 参考资料
 

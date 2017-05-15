@@ -9,6 +9,9 @@ import Computed from '@/demo/computed'
 import Key from '@/demo/key'
 import VModel from '@/demo/v-model'
 import ComponentProps from '@/demo/component-props'
+import ComponentEvent from '@/demo/component-event'
+import RecursiveComponentContainer from '@/demo/recursive-component-container'
+import InlineTemplate from '@/demo/inline-template'
 
 Vue.use(Router)
 
@@ -47,7 +50,15 @@ export default new Router({
     {
       path: '/component-event',
       name: 'component-event',
-      component: import('@/demo/component-event')
+      component: ComponentEvent
+    },
+    {
+      path: '/recursive-component',
+      component: RecursiveComponentContainer
+    },
+    {
+      path: '/inline-template',
+      component: InlineTemplate
     },
     {
       path: '/async-component',

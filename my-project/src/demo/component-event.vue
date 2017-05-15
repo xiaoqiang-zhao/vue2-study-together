@@ -3,7 +3,7 @@
     <h2>这里是父组件</h2>
 
     <h3>下面是子组件</h3>
-    <children-component @custom-event="parentComponentMethod"></children-component>
+    <children-component @custom-event="parentComponentMethod"/>
 
     <h2>这里是父组件的另一部分，演示双向数据绑定的套路</h2>
     <div>
@@ -12,13 +12,13 @@
     </div>
     <children-component-input
       v-model="text"
-    ></children-component-input>
+    />
 
     <h2>非父子组件通信方案演示</h2>
     <div>
       父组件：vuexData.name: {{vuexData.name}}
     </div>
-    <component-children-vuex-data></component-children-vuex-data>
+    <component-children-vuex-data/>
   </section>
 </template>
 
@@ -30,9 +30,9 @@
   import ChildrenComponentVuexData from './component-children-vuex-data'
   export default {
     components: {
-      'children-component': ChildrenComponent,
-      'children-component-input': ChildrenComponentInput,
-      'component-children-vuex-data': ChildrenComponentVuexData
+      ChildrenComponent,
+      ChildrenComponentInput,
+      ChildrenComponentVuexData
     },
     data () {
       setTimeout(() => {
