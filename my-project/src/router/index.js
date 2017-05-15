@@ -53,7 +53,8 @@ export default new Router({
       path: '/async-component',
       name: 'async-component',
       component: resolve => import('@/demo/async-component'),
-      // component: import('@/demo/async-component').then(a => a()),
+
+      // 下面的配置项不生效，在源码搜了一下没找到相关实现
       // loading 时应当渲染的组件
       loading: LoadingComp,
       // 出错时渲染的组件
