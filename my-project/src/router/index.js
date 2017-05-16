@@ -12,6 +12,7 @@ import ComponentProps from '@/demo/component-props'
 import ComponentEvent from '@/demo/component-event'
 import RecursiveComponentContainer from '@/demo/recursive-component-container'
 import InlineTemplate from '@/demo/inline-template'
+import DataSet from '@/demo/data-set'
 
 Vue.use(Router)
 
@@ -59,6 +60,10 @@ export default new Router({
     {
       path: '/inline-template',
       component: InlineTemplate
+    },
+    {
+      path: '/data-set',
+      component: DataSet
     },
     {
       path: '/async-component',

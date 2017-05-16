@@ -30,6 +30,9 @@
         <li>
           <router-link to="inline-template">inline-template</router-link>
         </li>
+        <li>
+          <router-link to="data-set">data-set</router-link>
+        </li>
       </ul>
     </div>
   </div>
