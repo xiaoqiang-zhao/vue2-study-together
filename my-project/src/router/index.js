@@ -13,6 +13,7 @@ import ComponentEvent from '@/demo/component-event'
 import RecursiveComponentContainer from '@/demo/recursive-component-container'
 import InlineTemplate from '@/demo/inline-template'
 import DataSet from '@/demo/data-set'
+import Transition from '@/demo/transition'
 
 Vue.use(Router)
 
@@ -64,6 +65,10 @@ export default new Router({
     {
       path: '/data-set',
       component: DataSet
+    },
+    {
+      path: '/transition',
+      component: Transition
     },
     {
       path: '/async-component',

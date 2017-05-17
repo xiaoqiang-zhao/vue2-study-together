@@ -33,6 +33,9 @@
         <li>
           <router-link to="data-set">data-set</router-link>
         </li>
+        <li>
+          <router-link to="transition">组件过渡</router-link>
+        </li>
       </ul>
     </div>
   </div>

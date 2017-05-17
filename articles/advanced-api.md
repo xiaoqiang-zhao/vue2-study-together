@@ -25,3 +25,35 @@
           })
         }
     }
+
+## 组件过渡
+
+直接上代码：
+
+    Dom:
+    <div>
+      <button v-on:click="show = !show">显隐</button>
+      <transition>
+        <p v-show="show">hello</p>
+      </transition>
+    </div>
+    
+    Style:
+    .v-enter-active, .v-leave-active {
+      transition: opacity 3s
+    }
+  
+    .v-enter, .v-leave-active {
+      opacity: 0
+    }
+
+看 Demo：`/src/demo/transition.vue`。
+
+
+
+
+
+
+
+
+
