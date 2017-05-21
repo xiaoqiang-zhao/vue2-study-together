@@ -49,7 +49,9 @@
 
 看 Demo：`/src/demo/transition.vue`。
 
+-active 在动画执行时存在的 class，enter 和 leave 定义开始状态。
 
+动画，文字的位置为什么会变？
 
 
 

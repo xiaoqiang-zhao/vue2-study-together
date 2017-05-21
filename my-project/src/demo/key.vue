@@ -19,6 +19,11 @@
     </div>
 
     <button @click="reverseList">反转列表</button>
+
+    <div>
+      我的解释：
+      在循环中的节点，如果标签没有数据绑定或逻辑绑定，并且没有被标记 :key，那么这个标签不会被放在虚拟Dom树中缓存，在数据变化后，为了性能这些没有被监管的标签不会改变。
+    </div>
   </section>
 </template>
 
