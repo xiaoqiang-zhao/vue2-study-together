@@ -53,9 +53,22 @@
 
 动画，文字的位置为什么会变？
 
+<transition
+    name="custom-classes-transition"
+    enter-active-class="animated tada"
+    leave-active-class="animated bounceOutRight"
+  >
 
+另外两个状态也可以定义吧？name 还有必要写吗？
 
+什么场景同时有过渡和动画？
 
+8 个状态钩子
 
+多元素的过渡问题
+
+过渡模式 -> 要写个 demo 研究一下多按钮的状态。
+
+列表位移
 
 
