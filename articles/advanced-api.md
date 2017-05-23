@@ -26,9 +26,14 @@
         }
     }
 
-## 组件过渡
+## 过渡效果和状态
 
-直接上代码：
+过渡效果是显隐的过渡，过渡状态是值改变的过渡。
+
+![transition.gif](./img/transition.gif)
+
+显隐的过渡分三类：v-if、v-show、数组对象中元素的增减。
+先说前两种在过渡上他们并没有什么显著的差别。transition 可以有一个 name，缺省值是 v。进入和离开又各有两个状态，enter 和 leave 定义起始时的状态，enter-active 和 leave-active 定义动画过程和结束时的状态。如下面简单 Demo：`/src/demo/transition.vue`：
 
     Dom:
     <div>
@@ -47,23 +52,20 @@
       opacity: 0
     }
 
-看 Demo：`/src/demo/transition.vue`。
+自定义过渡类名一般用不到，一种更好的实践是将自定义动画包装成组件。
 
--active 在动画执行时存在的 class，enter 和 leave 定义开始状态。
+    <transition
+      name="custom-classes-transition"
+      enter-active-class="animated tada"
+      leave-active-class="animated bounceOutRight"
+    >
 
-动画，文字的位置为什么会变？
+同时使用 Transitions 和 Animations 时注意设置 type。(什么场景同时有过渡和动画？我没想到)
 
-<transition
-    name="custom-classes-transition"
-    enter-active-class="animated tada"
-    leave-active-class="animated bounceOutRight"
-  >
+动画状态的两组钩子比较有用，可以配合 Velocity.js 实现更复杂的动画：
 
-另外两个状态也可以定义吧？name 还有必要写吗？
-
-什么场景同时有过渡和动画？
-
-8 个状态钩子
+- beforeEnter enter afterEnter enterCancelled
+- leaveEnter leave afterLeave leaveCancelled
 
 多元素的过渡问题
 
@@ -72,3 +74,4 @@
 列表位移
 
 
+requestAnimationFrame 
