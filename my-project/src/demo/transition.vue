@@ -12,9 +12,9 @@
     </div>
     <h3>示例三：多元素过渡</h3>
     <div>
-      <transition>
-        <button v-bind:key="stateCode">
-          {{ stateText }}
+      <transition name="btn-state-tran" mode="out-in">
+        <button v-bind:key="stateData.code" @click="changeState">
+          {{ stateData.text }}
         </button>
       </transition>
     </div>
@@ -34,24 +34,37 @@
       }
     },
     computed: {
-      stateText() {
-        let stateMap = {
-          open: {
+      stateData () {
+        let stateList = [
+          {
+            name: 'open',
             code: 1,
             text: '上线'
           },
-          opening: {
-
+          {
+            name: 'opening',
+            code: 2,
+            text: '上线中...'
           },
-          close: {
-
+          {
+            name: 'close',
+            code: 3,
+            text: '下线'
           },
-          closing: {
-
+          {
+            name: 'closing',
+            code: 4,
+            text: '下线中...'
           }
-        }
-
-      return stateMap[this.state].text
+        ]
+        let stateObj = null
+        stateList.some(item => {
+          if (item.code === this.state) {
+            stateObj = item
+            return true
+          }
+        })
+        return stateObj
       }
     },
     watch: {
@@ -77,7 +90,14 @@
         animate()
       }
     },
-    methods: {}
+    methods: {
+      changeState () {
+        this.state = this.state + 1
+        if (this.state > 4) {
+          this.state = 1
+        }
+      }
+    }
   }
 </script>
 <style>
@@ -94,5 +114,22 @@
   /* 定义进入时的起始状态 和 离开时的目标状态 */
   .fade-enter, .fade-leave-active {
     opacity: 0
+  }
+
+  /* 按钮状态切换 */
+  .btn-state-tran-enter-active,
+  .btn-state-tran-leave-active {
+    display: inline-block;
+    overflow: hidden;
+    transition: all 1s;
+    word-break: keep-all;
+  }
+  .btn-state-tran-leave-active {
+    opacity: 0;
+    transform: translateX(-31px);
+  }
+  .btn-state-tran-enter {
+    opacity: 0;
+    transform: translateX(31px);
   }
 </style>

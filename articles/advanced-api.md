@@ -32,6 +32,8 @@
 
 ![transition.gif](./img/transition.gif)
 
+### 过渡效果
+
 显隐的过渡分三类：v-if、v-show、数组对象中元素的增减。
 先说前两种在过渡上他们并没有什么显著的差别。transition 可以有一个 name，缺省值是 v。进入和离开又各有两个状态，enter 和 leave 定义起始时的状态，enter-active 和 leave-active 定义动画过程和结束时的状态。如下面简单 Demo：`/src/demo/transition.vue`：
 
@@ -67,11 +69,40 @@
 - beforeEnter enter afterEnter enterCancelled
 - leaveEnter leave afterLeave leaveCancelled
 
-多元素的过渡问题
+多元素的过渡需要用到 mode="out-in"，查看示例三：多元素过渡演示。
 
-过渡模式 -> 要写个 demo 研究一下多按钮的状态。
+显隐的过渡第三类表现就是数组元素的增删和改变，需要用 transition-group 来描述。
 
-列表位移
+### 过渡状态
+
+状态过渡设计的都是值变处理，所以 CSS 的动画在这里就不合适了，这里主要用到两个库：
+
+- 数字的值变: [tween.js](https://github.com/tweenjs/tween.js)
+- 颜色的值变: [color-js](https://github.com/brehaut/color-js)
+ 
+这里需要单独学习两个库的使用，在官网的 Demo “状态动画 与 watcher” 中有一个死循环，这里修正一下：
+
+    number: function (newValue, oldValue) {
+      var vm = this
+      // 递归调用
+      function animate () {
+        // 这里改造了官网的例子，
+        // 官网上的递归调用是一个死循环
+        if (TWEEN.update()) {
+          requestAnimationFrame(animate)
+        }
+      }
+
+      new TWEEN.Tween({tweeningNumber: oldValue})
+        .easing(TWEEN.Easing.Quadratic.Out)
+        .to({tweeningNumber: newValue}, 500)
+        .onUpdate(function () {
+          vm.animatedNumber = this.tweeningNumber.toFixed(0)
+        })
+        .start()
+
+      animate()
+    }
 
 
-requestAnimationFrame 
+
