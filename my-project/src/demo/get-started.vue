@@ -36,6 +36,9 @@
         <li>
           <router-link to="transition">组件过渡</router-link>
         </li>
+        <li>
+          <router-link to="functional-comp">函数化组件</router-link>
+        </li>
       </ul>
     </div>
   </div>

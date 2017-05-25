@@ -14,6 +14,7 @@ import RecursiveComponentContainer from '@/demo/recursive-component-container'
 import InlineTemplate from '@/demo/inline-template'
 import DataSet from '@/demo/data-set'
 import Transition from '@/demo/transition'
+import FunctionalComp from '@/demo/functional-component-parent'
 
 Vue.use(Router)
 
@@ -69,6 +70,10 @@ export default new Router({
     {
       path: '/transition',
       component: Transition
+    },
+    {
+      path: '/functional-comp',
+      component: FunctionalComp
     },
     {
       path: '/async-component',
