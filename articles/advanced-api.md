@@ -128,3 +128,7 @@ React 转粉过来的，想用 JSX；
 - 值为对象的选项，例如 methods, components 和 directives，将被混合为同一个对象。 两个对象键名冲突时，取组件对象的键值对；
 - 上面两条可以通过 `Vue.config.optionMergeStrategies.myOption` 自定义。
 
+## 插件
+
+这个真没什么好说的，等有了开发插件的经验再补充这一块吧。
+

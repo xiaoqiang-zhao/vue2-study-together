@@ -18,7 +18,7 @@
     <div>
       父组件：vuexData.name: {{vuexData.name}}
     </div>
-    <component-children-vuex-data/>
+    <children-component-vuex-data/>
   </section>
 </template>
 
@@ -44,7 +44,17 @@
         vuexData
       }
     },
+    beforeCreate () {
+      console.log('父：beforeCreate')
+    },
+    created () {
+      console.log('父：created')
+    },
+    beforeMount () {
+      console.log('父：beforeMount')
+    },
     mounted () {
+      console.log('父：mounted')
       // 这样监听不到子组件自定义事件 custom-event
       // 只能监听到当前组件自己的 custom-event 事件
       this.$on('custom-event', (data) => {
