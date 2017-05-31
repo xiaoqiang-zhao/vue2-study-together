@@ -22,6 +22,9 @@
 ## 分享资料
 
 - [学习怎么用 vue-cli 起步](./articles/vue-cli-base.md)
+- [API 基础篇](./articles/api-base.md)
+- [API 组件篇](./articles/api-component.md)
+- [API 进阶篇](./articles/api-advanced.md)
 
 ## 一些约定
 

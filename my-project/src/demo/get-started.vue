@@ -3,6 +3,7 @@
     <div>
       <h2> Demo 列表</h2>
       <ul>
+        <li>API 基础篇 Demo:</li>
         <li>
           <router-link to="template-interpolation">模板插值表达式</router-link>
         </li>
@@ -15,6 +16,7 @@
         <li>
           <router-link to="v-model">v-model</router-link>
         </li>
+        <li>API 组件篇 Demo:</li>
         <li>
           <router-link to="component-props">component-props</router-link>
         </li>
@@ -30,6 +32,7 @@
         <li>
           <router-link to="inline-template">inline-template</router-link>
         </li>
+        <li>API 进阶篇 Demo:</li>
         <li>
           <router-link to="data-set">data-set</router-link>
         </li>

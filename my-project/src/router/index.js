@@ -4,17 +4,20 @@ import Router from 'vue-router'
 import LoadingComp from '@/widget/loading'
 import ErrorComp from '@/widget/error'
 import Hello from '@/demo/get-started'
-import TemplateInterpolation from '@/demo/template-interpolation'
-import Computed from '@/demo/computed'
-import Key from '@/demo/key'
-import VModel from '@/demo/v-model'
-import ComponentProps from '@/demo/component-props'
-import ComponentEvent from '@/demo/component-event'
-import RecursiveComponentContainer from '@/demo/recursive-component-container'
-import InlineTemplate from '@/demo/inline-template'
-import DataSet from '@/demo/data-set'
-import Transition from '@/demo/transition'
-import FunctionalComp from '@/demo/functional-component-parent'
+// API 基础篇 Demo
+import TemplateInterpolation from '@/demo/api-base/template-interpolation'
+import Computed from '@/demo/api-base/computed'
+import Key from '@/demo/api-base/key'
+import VModel from '@/demo/api-base/v-model'
+// API 组件篇 Demo
+import ComponentProps from '@/demo/api-component/component-props'
+import ComponentEvent from '@/demo/api-component/component-event'
+import RecursiveComponentContainer from '@/demo/api-component/recursive-component-container'
+import InlineTemplate from '@/demo/api-component/inline-template'
+// API 进阶篇 Demo
+import DataSet from '@/demo/api-advanced/data-set'
+import Transition from '@/demo/api-advanced/transition'
+import FunctionalComp from '@/demo/api-advanced/functional-component-parent'
 
 Vue.use(Router)
 
@@ -78,7 +81,7 @@ export default new Router({
     {
       path: '/async-component',
       name: 'async-component',
-      component: resolve => import('@/demo/async-component'),
+      component: resolve => import('@/demo/api-component/async-component'),
 
       // 下面的配置项不生效，在源码搜了一下没找到相关实现
       // loading 时应当渲染的组件

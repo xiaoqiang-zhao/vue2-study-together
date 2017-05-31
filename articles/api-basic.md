@@ -65,6 +65,8 @@ vue 不支持 IE8 及以下浏览器。
     }
     </script>
 
+在 Demo: `demo/api-base/template-interpolation.vue` 中查看答案。
+
 v-once 的使用场景，前端静态数据，除了那两个数字都可以用 v-once 来提高性能：
 
 ![v-once 语法演示图片](./img/template-once-example.png)
