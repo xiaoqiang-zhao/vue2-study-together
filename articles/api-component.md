@@ -119,6 +119,13 @@ vue2 在自定义事件上做了很多减法，这使组件间的关系更为简
 - 父子组件双向数据绑定 `component-event-children-input.vue`；
 - 非父子组件通信推荐方案(简化版vuex，这里并没有用到 vuex) `component-children-vuex-data.vue`；
 
+总结一下组件通信的复杂度定义和相应的对策：
+
+-【简单】父子通信：props
+-【不太复杂 - 灰色】子父通信：v-module
+-【比较复杂 - 深灰色】全系统只有一次的亲兄弟和舅老爷通信：包共享json
+-【复杂】多处复杂交互:引入 vuex
+
 ## slot
 
 这一节有两个关键的点：
