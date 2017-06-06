@@ -18,7 +18,8 @@ import InlineTemplate from '@/demo/api-component/inline-template'
 import DataSet from '@/demo/api-advanced/data-set'
 import Transition from '@/demo/api-advanced/transition'
 import FunctionalComp from '@/demo/api-advanced/functional-component-parent'
-
+// Vuex
+import VuexGetStarted from '@/demo/vuex/get-started'
 Vue.use(Router)
 
 export default new Router({
@@ -77,6 +78,10 @@ export default new Router({
     {
       path: '/functional-comp',
       component: FunctionalComp
+    },
+    {
+      path: '/vuex-get-started',
+      component: VuexGetStarted
     },
     {
       path: '/async-component',

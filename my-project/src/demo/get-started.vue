@@ -42,6 +42,10 @@
         <li>
           <router-link to="functional-comp">函数化组件</router-link>
         </li>
+        <li>Vuex Demo:</li>
+        <li>
+          <router-link to="vuex-get-started">vuex get started</router-link>
+        </li>
       </ul>
     </div>
   </div>
