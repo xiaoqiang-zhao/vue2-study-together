@@ -66,6 +66,30 @@
 
 ### state
 
+状态
+
+### getters
+
+store 的计算属性
+
+### mutations
+
+触发事件修改数据
+
+    mutations: {
+      increment (state, payload) {
+        state.count += payload.amount
+      }
+    }
+    store.commit('increment', {
+      amount: 10
+    })
+
+同步事件
+
+### actions 异步事件
+
+异步，事件分发
 
 ## 参考
 

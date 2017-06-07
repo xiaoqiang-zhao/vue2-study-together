@@ -20,6 +20,8 @@ import Transition from '@/demo/api-advanced/transition'
 import FunctionalComp from '@/demo/api-advanced/functional-component-parent'
 // Vuex
 import VuexGetStarted from '@/demo/vuex/get-started'
+import VuexHope1 from '@/demo/vuex/hope-1'
+import VuexHope2 from '@/demo/vuex/hope-2'
 Vue.use(Router)
 
 export default new Router({
@@ -82,6 +84,14 @@ export default new Router({
     {
       path: '/vuex-get-started',
       component: VuexGetStarted
+    },
+    {
+      path: '/vuex-hope-1',
+      component: VuexHope1
+    },
+    {
+      path: '/vuex-hope-2',
+      component: VuexHope2
     },
     {
       path: '/async-component',

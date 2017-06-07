@@ -46,6 +46,12 @@
         <li>
           <router-link to="vuex-get-started">vuex get started</router-link>
         </li>
+        <li>
+          <router-link to="vuex-hope-1">vuex hope 1</router-link>
+        </li>
+        <li>
+          <router-link to="vuex-hope-2">vuex hope 2</router-link>
+        </li>
       </ul>
     </div>
   </div>
