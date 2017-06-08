@@ -4,7 +4,6 @@
   </div>
 </template>
 
-
 <script>
   import Vuex from 'vuex'
   const store = new Vuex.Store({
