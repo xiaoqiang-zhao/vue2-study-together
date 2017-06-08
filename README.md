@@ -25,6 +25,7 @@
 - [API 基础篇](./articles/api-basic.md)
 - [API 组件篇](./articles/api-component.md)
 - [API 进阶篇](./articles/api-advanced.md)
+- [生态 Vuex](./articles/vuex.md)
 
 ## 一些约定
 
