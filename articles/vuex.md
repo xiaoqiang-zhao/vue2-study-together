@@ -10,7 +10,7 @@
 ## 开始
 
 每个应用仅仅包含一个 store 实例，Vuex 提供了一种机制将状态从根组件『注入』到每一个子组件中。所以我们只要在根组件写入 store，其他组件就都可以访问 store 了，看实例代码：
-    
+
 根组件 /src/main.js
 
     import Vue from 'vue'
