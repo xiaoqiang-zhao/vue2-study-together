@@ -8,7 +8,7 @@
   export default {
     data () {
       setTimeout(() => {
-        console.log('子组件通过 $emit 触发事件')
+        console.log('A子组件通过 $emit 触发事件')
         this.$emit('custom-event', '此字符串是 custom-event 事件的数据')
       }, 2000)
 
@@ -17,16 +17,16 @@
       }
     },
     beforeCreate () {
-      console.log('子：beforeCreate')
+      console.log('5子：beforeCreate')
     },
     created () {
-      console.log('子：created')
+      console.log('6子：created')
     },
     beforeMount () {
-      console.log('子：beforeMount')
+      console.log('7子：beforeMount')
     },
     mounted () {
-      console.log('子：mounted')
+      console.log('8子：mounted')
     }
   }
 </script>
