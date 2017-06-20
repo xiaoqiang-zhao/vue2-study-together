@@ -42,20 +42,6 @@ cli 工具怎么开发我们这里不展开，如果感兴趣，这里有一篇�
 - Less, Sass 等 CSS 预处理器不支持
 - 没有完善的后端数据 Mock 功能，这对前后台分离开发很重要
 
-## 可以正式起航了
-
-https://gitlocalize.com/repo/101/zh/en/basic.md
-
-https://gitlocalize.com/repo/101/zh/en/universal.md
-
-https://gitlocalize.com/repo/101/zh/en/structure.md
-
-https://gitlocalize.com/repo/101/zh/en/routing.md
-
-https://gitlocalize.com/repo/101/zh/en/data.md
-
-https://gitlocalize.com/repo/101/zh/en/hydration.md
-
 ## 备忘信息
 
 创作时间：2017-05-06

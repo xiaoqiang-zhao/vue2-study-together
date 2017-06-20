@@ -42,6 +42,20 @@ vue.js 是构建客户端应该用的框架，一般情况下 vue 组件在浏�
 
 综上，在使用服务器端渲染之前，首先要想清楚你是不是真的需要它。判断是否需要的一个重要标准就是你对首屏渲染时间的重视程度，如果只是一个内部系统，一个像仪表盘一样的功能页面，不适用服务器端渲染时几百毫秒就可以渲染完成，那么引入服务器端渲染就是一种过渡设计。当首屏加载时间被人吐槽的时候，服务器端渲染可能为你带来更好的效果。
 
+## 可以正式起航了
+
+https://gitlocalize.com/repo/101/zh/en/basic.md
+
+https://gitlocalize.com/repo/101/zh/en/universal.md
+
+https://gitlocalize.com/repo/101/zh/en/structure.md
+
+https://gitlocalize.com/repo/101/zh/en/routing.md
+
+https://gitlocalize.com/repo/101/zh/en/data.md
+
+https://gitlocalize.com/repo/101/zh/en/hydration.md
+
 ## 参考
 
 官方文档：[https://ssr.vuejs.org/en/](https://ssr.vuejs.org/en/)
