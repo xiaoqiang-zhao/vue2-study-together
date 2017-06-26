@@ -111,6 +111,10 @@ OK，一个简单到爆的 Hello world 就完成了，但是还有很多问题�
 
 翻译中的文档：
 
+https://gitlocalize.com/repo/101/zh/en/README.md
+
+https://gitlocalize.com/repo/101/zh/en/SUMMARY.md
+
 https://gitlocalize.com/repo/101/zh/en/basic.md
 
 https://gitlocalize.com/repo/101/zh/en/universal.md
@@ -122,6 +126,20 @@ https://gitlocalize.com/repo/101/zh/en/routing.md
 https://gitlocalize.com/repo/101/zh/en/data.md
 
 https://gitlocalize.com/repo/101/zh/en/hydration.md
+
+https://gitlocalize.com/repo/101/zh/en/bundle-renderer.md
+
+https://gitlocalize.com/repo/101/zh/en/build-config.md
+
+https://gitlocalize.com/repo/101/zh/en/css.md
+
+https://gitlocalize.com/repo/101/zh/en/head.md
+
+https://gitlocalize.com/repo/101/zh/en/caching.md
+
+https://gitlocalize.com/repo/101/zh/en/streaming.md
+
+https://gitlocalize.com/repo/101/zh/en/api.md
 
 ## 编外
 
