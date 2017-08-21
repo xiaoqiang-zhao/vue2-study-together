@@ -22,6 +22,8 @@ import FunctionalComp from '@/demo/api-advanced/functional-component-parent'
 import VuexGetStarted from '@/demo/vuex/get-started'
 import VuexHope1 from '@/demo/vuex/hope-1'
 import VuexHope2 from '@/demo/vuex/hope-2'
+// 插件
+import VueColor from '@/demo/vue-color'
 Vue.use(Router)
 
 export default new Router({
@@ -88,10 +90,6 @@ export default new Router({
     {
       path: '/vuex-hope-1',
       component: VuexHope1
-    },
-    {
-      path: '/vuex-hope-2',
-      component: VuexHope2
     },
     {
       path: '/async-component',
